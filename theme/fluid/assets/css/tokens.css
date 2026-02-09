@@ -2,6 +2,8 @@
    GLOBAL SHARED TOKENS (Spacing, Typography, Radius)
    ========================================================= */
 :root {
+  color-scheme: light dark;
+
   /* Radius */
   --radius-xs: 4px;
   --radius-sm: 8px;
@@ -84,6 +86,9 @@
   --text-muted: var(--color-text-muted-light);
   --border: var(--color-border-light);
   --shadow-soft: var(--shadow-soft-light);
+
+  --bg-table-odd: var(--bg-alt);
+  --bg-table-even: var(--bg-elevated);
 }
 
 /* Dark Mode Override for Blue */
@@ -139,6 +144,9 @@
   --text-muted: var(--color-text-muted-light);
   --border: var(--color-border-light);
   --shadow-soft: var(--shadow-soft-light);
+
+  --bg-table-odd: var(--bg-alt);
+  --bg-table-even: var(--bg-elevated);
 }
 
 :root[data-theme="emerald"][data-mode="dark"] {
@@ -190,6 +198,8 @@
   --text-muted: var(--color-text-muted-light);
   --border: var(--color-border-light);
   --shadow-soft: var(--shadow-soft-light);
+  --bg-table-odd: var(--bg-alt);
+  --bg-table-even: var(--bg-elevated);
 }
 
 :root[data-theme="amber"][data-mode="dark"] {
@@ -240,6 +250,8 @@
   --text-muted: var(--color-text-muted-light);
   --border: var(--color-border-light);
   --shadow-soft: var(--shadow-soft-light);
+  --bg-table-odd: var(--bg-alt);
+  --bg-table-even: var(--bg-elevated);
 }
 
 :root[data-theme="berry"][data-mode="dark"] {
@@ -288,6 +300,8 @@
   --text-muted: var(--color-text-muted-light);
   --border: var(--color-border-light);
   --shadow-soft: var(--shadow-soft-light);
+  --bg-table-odd: var(--bg-alt);
+  --bg-table-even: var(--bg-elevated);
 }
 
 :root[data-theme="violet"][data-mode="dark"] {
@@ -336,6 +350,8 @@
   --text-muted: var(--color-text-muted-light);
   --border: var(--color-border-light);
   --shadow-soft: var(--shadow-soft-light);
+  --bg-table-odd: var(--bg-alt);
+  --bg-table-even: var(--bg-elevated);
 }
 
 :root[data-theme="cyan"][data-mode="dark"] {
@@ -386,6 +402,8 @@
   --text-muted: var(--color-text-muted-light);
   --border: var(--color-border-light);
   --shadow-soft: var(--shadow-soft-light);
+  --bg-table-odd: var(--bg-alt);
+  --bg-table-even: var(--bg-elevated);
 }
 
 :root[data-theme="slate"][data-mode="dark"] {
@@ -401,4 +419,271 @@
   --color-primary: oklch(0.8 0.02 260);
   --color-primary-soft: oklch(0.3 0.02 260);
   --color-primary-dark: oklch(0.9 0.01 260);
+}
+
+/* --- Legacy --- */
+
+/* --- BLUE 2 THEME (Legacy Port) --- 
+   Hue: 240 (Indigo / Royal Blue)
+   Based on main.css: GitHub-like Dark Mode & Indigo Primary
+*/
+:root[data-theme="blue2"] {
+  /* Palette: Light */
+  /* #f8f9fa converted to oklch */
+  --color-bg-light: oklch(0.98 0.01 240);
+  /* #ffffff panel */
+  /*--color-bg-alt-light: oklch(1 0 0); */
+  --color-bg-alt-light: oklch(0.99 0.01 250);
+  --color-bg-elevated-light: oklch(0.96 0.01 240);
+
+  /* Text & Border */
+  --color-text-light: oklch(0.15 0.02 240);
+  --color-text-muted-light: oklch(0.45 0.02 240);
+  /* #e1e4e8 converted */
+  --color-border-light: oklch(0.9 0.01 240);
+
+  /* Palette: Dark */
+  /* #0d1117 converted (GitHub Dark Dimmed) */
+  --color-bg-dark: oklch(0.18 0.03 260);
+  /* #161b22 converted */
+  --color-bg-alt-dark: oklch(0.22 0.03 260);
+  --color-bg-elevated-dark: oklch(0.26 0.03 260);
+
+  /* Text & Border Dark */
+  --color-text-dark: oklch(0.95 0.01 240);
+  --color-text-muted-dark: oklch(0.65 0.02 240);
+  /* #30363d converted */
+  --color-border-dark: oklch(0.35 0.02 260);
+
+  /* Primary (taken from main.css light mode) */
+  --color-primary: oklch(0.55 0.15 240);
+  /* Secondary from main.css approximation */
+  --color-primary-soft: oklch(0.8 0.06 240);
+  --color-primary-dark: oklch(0.4 0.15 240);
+
+  /* Header */
+  --color-text-header-light: oklch(0.55 0.15 240);
+  --color-text-header-dark: oklch(0.7 0.12 240);
+
+  /* Shadows */
+  --shadow-soft-light: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  /* Mapping */
+  --bg: var(--color-bg-light);
+  --bg-alt: var(--color-bg-alt-light);
+  --bg-elevated: var(--color-bg-elevated-light);
+  --text: var(--color-text-light);
+  --text-muted: var(--color-text-muted-light);
+  --border: var(--color-border-light);
+  --text-header: var(--color-text-header-light);
+  --bg-table-odd: var(--bg-alt);
+  --bg-table-even: var(--bg-elevated);
+
+  /* CODE TOKENS (GitHub Style) */
+  --code-font-family:
+    "ui-monospace", "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+  --code-text-shadow: none;
+  --code-background: rgba(175, 184, 193, 0.2); /* Dezent Grau */
+  --code-color: var(--text); /* Normaler Text statt Farbe */
+  --code-border: 1px solid transparent;
+  --code-border-radius: 6px;
+  --code-box-shadow: none;
+}
+
+:root[data-theme="blue2"][data-mode="dark"] {
+  --bg: var(--color-bg-dark);
+  --bg-alt: var(--color-bg-alt-dark);
+  --bg-elevated: var(--color-bg-elevated-dark);
+  --text: var(--color-text-dark);
+  --text-muted: var(--color-text-muted-dark);
+  --border: var(--color-border-dark);
+  --shadow-soft: var(--shadow-soft-dark);
+
+  /* Override Primary for Dark Mode (taken from main.css dark variant) 
+     oklch(0.7 0.12 240) is brighter for contrast on dark bg */
+  --color-primary: oklch(0.7 0.12 240);
+  --color-primary-soft: oklch(0.3 0.05 240);
+  --color-primary-dark: oklch(0.8 0.1 240);
+  --text-header: var(--color-text-header-dark);
+}
+
+/* --- MATRIX THEME --- 
+   Hue: 142 (Neon Green)
+   Style: High Contrast, Terminal/Hacker Aesthetics
+*/
+:root[data-theme="matrix"] {
+  /* --- TYPOGRAPHY & SHAPE OVERRIDES --- */
+  /* Matrix nutzt Monospace Fonts */
+  --font-family-sans: "Courier New", Courier, monospace;
+
+  /* Eckigerer Look für Matrix (Tech-Style) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 4px; /* Auch Pills eher eckig */
+
+  /* --- PALETTE --- */
+
+  /* Palette: Light (Day Mode Terminal - Pale Green BG, Dark Green Text) */
+  /* Optional: Falls du Light Mode erlauben willst */
+  --color-bg-light: oklch(0.96 0.02 142); /* Very pale green */
+  --color-bg-alt-light: oklch(0.92 0.04 142);
+  --color-bg-elevated-light: oklch(1 0 0);
+
+  --color-text-light: oklch(0.2 0.1 142); /* Dark Green Text */
+  --color-text-muted-light: oklch(0.4 0.1 142);
+  --color-border-light: oklch(0.7 0.1 142);
+
+  /* Palette: Dark (The Real Matrix - Black BG, Neon Green Text) */
+  /* #0d0d0d -> oklch(0.05 0 0) */
+  --color-bg-dark: oklch(0.05 0 0);
+  /* rgba(0, 10, 0, 0.9) -> Darker Green/Black */
+  --color-bg-alt-dark: oklch(0.08 0.05 142);
+  /* rgba(0, 20, 0, 0.6) -> Glass Green */
+  --color-bg-elevated-dark: oklch(0.12 0.08 142);
+
+  /* #00ff41 -> Matrix Green */
+  --color-text-dark: oklch(0.85 0.29 142);
+  /* #003b00 -> Dark Green (Muted Text) */
+  --color-text-muted-dark: oklch(0.5 0.2 142);
+  /* #003b00 -> Border */
+  --color-border-dark: oklch(0.3 0.15 142);
+
+  /* Primary Colors */
+  /* #0aff0a -> Bright Green */
+  --color-primary: oklch(0.9 0.37 142);
+  /* #00ff41 -> Soft/Regular Green */
+  --color-primary-soft: oklch(0.85 0.29 142);
+  /* #003b00 -> Dark Green */
+  --color-primary-dark: oklch(0.22 0.13 142);
+
+  /* Shadows (Neon Glow) */
+  --shadow-soft-light: 0 0 10px oklch(0.85 0.29 142 / 0.2);
+  --shadow-soft-dark: 0 0 15px oklch(0.85 0.29 142 / 0.4);
+
+  /* --- MAPPING --- */
+  /* Default to Dark Mode mapping if system is dark, otherwise light */
+  --bg: var(--color-bg-light);
+  --bg-alt: var(--color-bg-alt-light);
+  --bg-elevated: var(--color-bg-elevated-light);
+  --text: var(--color-text-light);
+  --text-muted: var(--color-text-muted-light);
+  --border: var(--color-border-light);
+  --shadow-soft: var(--shadow-soft-light);
+  --bg-table-odd: var(--bg-alt);
+  --bg-table-even: var(--bg-elevated);
+
+  /* CODE TOKENS */
+  --code-font-family: "Courier New", Courier, monospace;
+  --code-text-shadow: 0 0 2px var(--color-primary);
+  --code-background: oklch(0.12 0.08 142);
+  --code-color: var(--color-primary);
+  --code-border: 1px solid var(--color-primary-dark);
+  --code-border-radius: 2px;
+  --code-box-shadow: 0 0 8px var(--color-primary-dark);
+}
+
+/* Force Dark Mode look usually preferred for Matrix */
+:root[data-theme="matrix"][data-mode="dark"] {
+  --bg: var(--color-bg-dark);
+  --bg-alt: var(--color-bg-alt-dark);
+  --bg-elevated: var(--color-bg-elevated-dark);
+  --text: var(--color-text-dark);
+  --text-muted: var(--color-text-muted-dark);
+  --border: var(--color-border-dark);
+  --shadow-soft: var(--shadow-soft-dark);
+}
+
+/* --- TRON THEME --- 
+   Hue: 210 (Electric Cyan)
+   Style: Futuristic, Glassmorphism, Neon Glow
+   Based on main.css provided
+*/
+:root[data-theme="tron"] {
+  /* --- TYPOGRAPHY & SHAPE OVERRIDES --- */
+  /* Tron nutzt Orbitron für Headings, Inter für Body. 
+     Hier setzen wir den Standard auf Orbitron für den "Tech"-Look */
+  --font-family-sans: "Orbitron", "Inter", sans-serif;
+
+  /* Etwas rundere Ecken wie im Original CSS (--border-radius: 12px) */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* --- PALETTE --- */
+
+  /* Palette: Light (Hypothetical "Day Mode" Tron - High Tech White) */
+  --color-bg-light: oklch(0.96 0.01 210);
+  --color-bg-alt-light: oklch(0.99 0.01 210);
+  --color-bg-elevated-light: oklch(1 0 0);
+
+  --color-text-light: oklch(0.15 0.03 210);
+  --color-text-muted-light: oklch(0.45 0.03 210);
+  --color-border-light: oklch(0.85 0.05 210);
+
+  /* Palette: Dark (The Real Tron) */
+  /* --primary-bg: #000206 -> oklch approx */
+  --color-bg-dark: oklch(0.01 0.01 210);
+
+  /* --ob-glass approx for panels */
+  --color-bg-alt-dark: oklch(0.05 0.02 210);
+
+  /* Lighter glass for elevated cards */
+  --color-bg-elevated-dark: oklch(0.08 0.03 210);
+
+  /* --ob-white */
+  --color-text-dark: oklch(0.98 0.01 210);
+  --color-text-muted-dark: oklch(0.7 0.05 210);
+
+  /* --tron-glow for borders */
+  --color-border-dark: oklch(0.75 0.18 210 / 0.3);
+
+  /* Primary Colors */
+  /* --tron-cyan: oklch(0.75 0.18 210) */
+  --color-primary: oklch(0.75 0.18 210);
+
+  /* Soft version for backgrounds/hovers */
+  --color-primary-soft: oklch(0.75 0.18 210 / 0.15);
+
+  /* Darker version for text contrast if needed */
+  --color-primary-dark: oklch(0.6 0.15 210);
+
+  /* Shadows (Neon Glow) */
+  --shadow-soft-light: 0 5px 15px oklch(0.75 0.18 210 / 0.15);
+  /* Strong Cyan Glow */
+  --shadow-soft-dark: 0 0 15px oklch(0.75 0.18 210 / 0.4);
+
+  /* --- MAPPING --- */
+  --bg: var(--color-bg-light);
+  --bg-alt: var(--color-bg-alt-light);
+  --bg-elevated: var(--color-bg-elevated-light);
+  --text: var(--color-text-light);
+  --text-muted: var(--color-text-muted-light);
+  --border: var(--color-border-light);
+  --shadow-soft: var(--shadow-soft-light);
+  --bg-table-odd: var(--bg-alt);
+  --bg-table-even: var(--bg-elevated);
+
+  /* CODE TOKENS (Neon Style) */
+  --code-font-family: "Menlo", "Consolas", monospace;
+  --code-text-shadow: none;
+  --code-background: oklch(0.75 0.18 210 / 0.1); /* Cyan Tint */
+  --code-color: var(--color-primary);
+  --code-border: 1px solid oklch(0.75 0.18 210 / 0.3);
+  --code-border-radius: 4px;
+  --code-box-shadow: 0 0 10px oklch(0.75 0.18 210 / 0.15);
+}
+
+/* Force Dark Mode defaults for authentic Tron feel */
+:root[data-theme="tron"][data-mode="dark"] {
+  --bg: var(--color-bg-dark);
+  --bg-alt: var(--color-bg-alt-dark);
+  --bg-elevated: var(--color-bg-elevated-dark);
+  --text: var(--color-text-dark);
+  --text-muted: var(--color-text-muted-dark);
+  --border: var(--color-border-dark);
+  --shadow-soft: var(--shadow-soft-dark);
 }

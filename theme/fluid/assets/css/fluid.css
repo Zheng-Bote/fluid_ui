@@ -12,6 +12,19 @@
   box-sizing: border-box;
 }
 
+@starting-style {
+  html {
+    font-display: swap;
+  }
+  body {
+    background-color: var(--bg);
+  }
+}
+
+@view-transition {
+  navigation: auto;
+}
+
 html {
   font-size: var(--font-size-root);
   font-synthesis: none;
@@ -58,6 +71,7 @@ h6 {
   text-wrap: pretty;
   margin-top: 0;
   margin-bottom: var(--space-3);
+  color: var(--text-header);
 }
 
 /* H1 – Größtes Heading */
@@ -98,14 +112,6 @@ h6 {
 .brief::before {
   opacity: 0.5;
   content: "» ";
-}
-
-.text {
-  max-width: 70ch;
-  padding: 3em 1em;
-  margin: auto;
-  line-height: 1.75;
-  text-wrap: pretty;
 }
 
 /* ---------------------------------------------------------
@@ -227,7 +233,9 @@ h6 {
   color: oklch(0.99 0 0);
 }
 
-#themeToggle:hover svg {
+#share-btn:hover svg,
+#themeToggle:hover svg,
+#searchTrigger:hover svg {
   color: var(--color-primary-dark);
   stroke: var(--color-primary-dark);
   fill: var(--color-primary-dark);
@@ -486,6 +494,30 @@ h6 {
   --preview-border: oklch(0.88 0.01 260);
 }
 
+/* Blue2 */
+.theme-preview-card[data-theme-preview="blue2"] {
+  --preview-primary: oklch(0.55 0.15 240);
+  --preview-bg: oklch(0.985 0.002 260);
+  --preview-text: oklch(0.15 0.02 240);
+  --preview-border: oklch(0.9 0.01 240);
+}
+
+/* Matrix */
+.theme-preview-card[data-theme-preview="matrix"] {
+  --preview-primary: oklch(0.9 0.37 142);
+  --preview-bg: oklch(0.96 0.02 142);
+  --preview-text: oklch(0.2 0.1 142);
+  --preview-border: oklch(0.7 0.1 142);
+}
+
+/* Tron */
+.theme-preview-card[data-theme-preview="tron"] {
+  --preview-primary: oklch(0.75 0.18 210);
+  --preview-bg: oklch(0.96 0.01 210);
+  --preview-text: oklch(0.15 0.03 210);
+  --preview-border: oklch(0.85 0.05 210);
+}
+
 /* Anwendung der Preview-Variablen */
 .theme-preview-card {
   background: var(--preview-bg);
@@ -601,6 +633,27 @@ h6 {
   color: oklch(0.99 0 0);
 }
 
+.tab-panel {
+  display: none;
+  animation: fadeInTab 0.3s ease;
+}
+
+.tab-panel.is-active {
+  display: block;
+}
+
+@keyframes fadeInTab {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Modal */
 .modal-backdrop {
   position: fixed;
@@ -685,15 +738,22 @@ figcaption {
   gap: var(--space-3);
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
+.gallery-2 {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
 
-.gallery figure {
+.gallery,
+.gallery-2 figure {
   cursor: pointer;
   transition:
     transform var(--transition-normal),
     box-shadow var(--transition-normal);
 }
 
-.gallery figure:hover {
+.gallery,
+.gallery-2 figure:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-soft);
 }
@@ -779,6 +839,109 @@ figcaption {
 
 .tooltip:hover .tooltip-content {
   opacity: 1;
+}
+
+/* =========================================================
+   TABLE OF CONTENTS (TOC)
+   Generated automatically by SSG
+   Adapted for Fluid Tokens & Themes
+   ========================================================= */
+
+.toc {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 1rem 0 1rem 0;
+}
+.toc h3 {
+  padding-top: 1.5rem;
+}
+/* 1. Container-Look für die Hauptliste */
+ul.toc-level-2 {
+  background: var(--bg-alt); /* Nutzt Theme-Hintergrund */
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--color-primary); /* Theme-Akzentfarbe */
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem 1rem 1rem;
+  margin: 0.5rem 0 2rem 0;
+  display: inline-block;
+  min-width: 300px;
+  max-width: 100%;
+
+  /* Fluid Shadow Token */
+  box-shadow: var(--shadow-soft);
+
+  /* Optional: Glass-Effekt für Tron/Blue2 Themes */
+  backdrop-filter: blur(5px);
+}
+
+/* 2. Reset für alle Listen-Ebenen */
+ul[class^="toc-level-"] {
+  list-style: none;
+  padding-left: 0; /* Reset padding für saubere Ausrichtung */
+}
+
+/* 3. Abstände der Listeneinträge */
+ul[class^="toc-level-"] li {
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+  position: relative;
+}
+
+/* 4. Einrückung und Guides für Unterebenen (h3, h4) */
+.toc-level-3,
+.toc-level-4 {
+  margin-top: 0.4rem;
+  margin-left: 1.2rem;
+  padding-left: 0.8rem;
+  /* Dünne Linie in Theme-Border-Farbe */
+  border-left: 1px solid var(--border);
+}
+
+.toc-level-4 {
+  font-size: 0.9em;
+}
+
+/* 5. Link-Styling */
+ul[class^="toc-level-"] a {
+  color: var(--text);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  display: inline-block;
+  transition: all var(--transition-fast) ease;
+  opacity: 0.9;
+}
+
+ul[class^="toc-level-"] a:hover {
+  color: var(--color-primary);
+  opacity: 1;
+  transform: translateX(4px); /* Slide-Effekt */
+}
+
+/* 6. Anpassung des Pfeils (Breadcrumb-Style Arrow) */
+ul[class^="toc-level-"] a::before {
+  content: "» "; /* Inhalt explizit setzen */
+  color: var(--color-primary-soft); /* Nutzt die "softe" Primärfarbe */
+  font-weight: normal;
+  margin-right: 0.25rem;
+  opacity: 0.7;
+  display: inline-block;
+}
+
+/* --- THEME SPECIFIC OVERRIDES (Optional tweaks) --- */
+
+/* Tron: Stärkerer Glow für das TOC */
+:root[data-theme="tron"] ul.toc-level-2 {
+  box-shadow: 0 0 15px oklch(0.75 0.18 210 / 0.15);
+  border: 1px solid var(--color-primary);
+}
+
+/* Matrix: Terminal Look */
+:root[data-theme="matrix"] ul.toc-level-2 {
+  border-left-width: 1px; /* Matrix mag eher dünne Linien */
+  border: 1px dashed var(--color-primary-dark);
+}
+:root[data-theme="matrix"] ul[class^="toc-level-"] a::before {
+  content: "> "; /* Terminal Prompt Style */
 }
 
 /* ---------------------------------------------------------
@@ -1007,7 +1170,21 @@ figcaption {
   display: none;
 }
 
+/* Mermaid Diagrams */
+.mermaid {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
 /* Text */
+.text {
+  max-width: 70ch;
+  padding: 3em 1em;
+  margin: auto;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
 .text-left {
   text-align: left;
 }
@@ -1025,6 +1202,24 @@ figcaption {
 }
 .text-medium {
   font-weight: var(--font-weight-medium);
+}
+
+blockquote {
+  background: var(--bg-alt); /* Nutzt Theme-Hintergrund */
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--color-primary); /* Theme-Akzentfarbe */
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem 1rem 1rem;
+  margin: 0.5rem 0 2rem 2rem;
+  display: inline-block;
+  min-width: 300px;
+  max-width: 100%;
+
+  /* Fluid Shadow Token */
+  box-shadow: var(--shadow-soft);
+
+  /* Optional: Glass-Effekt für Tron/Blue2 Themes */
+  backdrop-filter: blur(5px);
 }
 
 /* Containers */
@@ -1117,8 +1312,15 @@ figcaption {
 }
 
 .table th {
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
   color: var(--text-muted);
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--bg-table-even);
+}
+.table tbody tr:nth-child(odd) {
+  background-color: var(--bg-table-odd);
 }
 
 .table tbody tr:hover {
@@ -1171,6 +1373,103 @@ figcaption {
   transform: translateY(0);
 }
 
+/* =========================================================
+   SSG NAVIGATION PATCH (für main.cpp Output)
+   ========================================================= */
+
+/* Reset der Liste */
+.sidebar .nav-list,
+.sidebar .nav-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Kategorien (Ordnernamen) stylen wie h3 im Original */
+.sidebar .nav-list li strong {
+  display: block;
+  margin-top: var(--space-4); /* Etwas mehr Abstand oben */
+  margin-bottom: var(--space-2);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-muted);
+  text-transform: uppercase; /* Optional, für klaren Look */
+  letter-spacing: 0.05em;
+}
+
+/* Links stylen */
+.sidebar .nav-list li a {
+  display: block;
+  padding: 0.35rem 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transition-normal);
+  border-radius: var(--radius-xs);
+}
+
+/* Hover & Active Status */
+.sidebar .nav-list li a:hover {
+  color: var(--color-primary);
+  background: var(--bg-elevated); /* Subtiler Hintergrund beim Hover */
+  padding-left: 0.5rem; /* Kleiner Einrück-Effekt */
+}
+
+.sidebar .nav-list li a.active {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Verschachtelte Ebenen (Sub-Navigation) */
+.sidebar .nav-list ul {
+  padding-left: 0.75rem;
+  margin-left: 0.25rem;
+  border-left: 1px solid var(--border);
+  margin-bottom: var(--space-2);
+}
+
+/* =========================================================
+   THEME AWARE CODE STYLES
+   Uses tokens defined in tokens.css
+   ========================================================= */
+
+/* Inline Code */
+.site-main code:not(pre code) {
+  font-family: var(--code-font-family, monospace);
+  color: var(--code-color, var(--color-primary));
+  background: var(--code-background, var(--bg-alt));
+  border: var(--code-border, 1px solid var(--border));
+  border-radius: var(--code-border-radius, 4px);
+  padding: 0.2em 0.4em;
+  text-shadow: var(--code-text-shadow, none);
+}
+
+/* Code Blocks (Pre) */
+.site-main pre {
+  font-family: var(--code-font-family, monospace);
+  background: var(--bg-elevated); /* Fallback oder spezifisch */
+  color: var(--text);
+  border: var(--code-border, 1px solid var(--border));
+  border-radius: var(--code-border-radius, 8px);
+  box-shadow: var(--code-box-shadow, none);
+
+  overflow-x: auto;
+  max-width: 100%;
+
+  /* Falls du den Hintergrund von Code-Blöcken auch über das Token steuern willst: */
+  /* background: var(--code-background, var(--bg-elevated)); */
+}
+
+/* Spezifische Anpassung für Code innerhalb von Pre (Inherit) */
+.site-main pre code {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+  text-shadow: inherit;
+  padding: 0;
+}
+
 /*
  =========================================================
  Mobile Docs Navigation als Buttons 
@@ -1219,4 +1518,55 @@ figcaption {
     max-width: 1600px;
     margin: auto;
   }
+}
+
+/* =========================================================
+   SEARCH STYLES
+   ========================================================= */
+
+.search-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-list li {
+  border-bottom: 1px solid var(--border);
+}
+
+.search-list li:last-child {
+  border-bottom: none;
+}
+
+.search-list a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  transition: background var(--transition-fast);
+}
+
+.search-list a:hover,
+.search-list a:focus {
+  background: var(--bg-alt);
+  outline: none;
+}
+
+.search-title {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.search-snippet {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.search-snippet mark {
+  background: color-mix(in oklch, var(--color-primary) 30%, transparent);
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 2px;
 }
