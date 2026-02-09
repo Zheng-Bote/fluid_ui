@@ -1,25 +1,26 @@
 <!doctype html>
-<html lang="en" data-theme="auto" data-base-path="https://zheng-bote.github.io/fluid_ui/">
+<html lang="en" data-theme="auto" data-base-path="{{ base_path }}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>gh_docs_bot: {{ title }}</title>
 
-    <link rel="preconnect" href="https://zheng-bote.github.io/fluid_ui/" />
+    <link rel="preconnect" href="{{ base_path }}" />
 
-    <link rel="preload" as="style" href="https://zheng-bote.github.io/fluid_ui/assets/css/tokens.css" />
-    <link rel="preload" as="style" href="https://zheng-bote.github.io/fluid_ui/assets/css/layouts.css" />
-    <link rel="preload" as="style" href="https://zheng-bote.github.io/fluid_ui/assets/css/fluid.css" />
-    <link rel="stylesheet" href="https://zheng-bote.github.io/fluid_ui/assets/css/tokens.css" />
-    <link rel="stylesheet" href="https://zheng-bote.github.io/fluid_ui/assets/css/layouts.css" />
-    <link rel="stylesheet" href="https://zheng-bote.github.io/fluid_ui/assets/css/fluid.css" />
+    <link rel="preload" as="style" href="{{ base_path }}assets/css/tokens.css" />
+    <link rel="preload" as="style" href="{{ base_path }}assets/css/layouts.css" />
+    <link rel="preload" as="style" href="{{ base_path }}assets/css/fluid.css" />
+    <link rel="stylesheet" href="{{ base_path }}assets/css/tokens.css" />
+    <link rel="stylesheet" href="{{ base_path }}assets/css/layouts.css" />
+    <link rel="stylesheet" href="{{ base_path }}assets/css/fluid.css" />
 
     <meta
       name="description"
-      content="Fluid UI is a lightweight, modern CSS framework built for performance and flexibility. It leverages OKLCH colors for better perceptional consistency, Fluid typography using clamp(), and a modular layout system." />
+      content="gh_docs_bot is a high-performance, custom C++ Static Site Generator (SSG) packaged as a reusable GitHub Action. It is designed to automatically build and deploy static documentation websites from Markdown and HTML files directly within your GitHub workflows."
+    />
     <meta
       name="keywords"
-      content="Fluid UI, CSS Framework, OKLCH, Fluid Typography, Modular Layout, Performance, Flexibility, ZHENG Robert, Robert Zheng, ZHENG Bote, 郑 伯特"
+      content="Github Action, Static Site Generator, SSG, Documentation, Markdown, HTML, GitHub Workflows, ZHENG Robert, Robert Zheng, ZHENG Bote, 郑 伯特"
     />
     <meta name="author" content="Zheng Robert" />
 
@@ -28,45 +29,45 @@
 
     <link
       rel="icon"
-      href="https://zheng-bote.github.io/fluid_ui/assets/icons/fluid_favicon.svg"
+      href="{{ base_path }}assets/icons/favicon.svg"
       type="image/svg+xml"
     />
     <link
       rel="apple-touch-icon"
-      href="https://zheng-bote.github.io/fluid_ui/assets/icons/fluid_apple-touch-icon.png"
+      href="{{ base_path }}assets/icons/apple-touch-icon.png"
     />
-    <link rel="shortcut icon" href="https://zheng-bote.github.io/fluid_ui/assets/fluid_favicon.ico" />
+    <link rel="shortcut icon" href="{{ base_path }}assets/favicon.ico" />
 
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Fluid UI: Lightweight, Modern CSS Framework"
+      content="gh_docs_bot: Static Site Generator"
     />
     <meta
       property="og:description"
-      content="Fluid UI is a lightweight, modern CSS framework built for performance and flexibility. It leverages OKLCH colors for better perceptional consistency, Fluid typography using clamp(), and a modular layout system."
+      content="gh_docs_bot is a high-performance C++ Static Site Generator (SSG) built as a reusable GitHub Action. It is designed to automatically build and deploy static documentation websites from Markdown, HTML, AsciiDoc, and Office files (ODT/DOCX) directly within your GitHub workflows."
     />
-    <meta property="og:site_name" content="Fluid UI" />
-    <meta property="og:url" content="https://github.com/Zheng-Bote/fluid_ui" />
-    <meta property="og:image" content="https://github.com/Zheng-Bote/fluid_ui/assets/fluid_ui-logo_500x500.png" />
+    <meta property="og:site_name" content="gh_docs_bot" />
+    <meta property="og:url" content="https://github.com/Zheng-Bote/gha_ghpages" />
+    <meta property="og:image" content="https://github.com/Zheng-Bote/gha_ghpages/assets/ssg-logo_500x500.png" />
     <meta
       property="og:image:alt"
-      content="Fluid UI: Lightweight, Modern CSS Framework"
+      content="gh_docs_bot: Static Site Generator"
     />
     <meta property="og:locale" content="en_US" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Fluid UI: Lightweight, Modern CSS Framework"
+      content="gh_docs_bot: Static Site Generator"
     />
     <meta
       name="twitter:description"
-      content="Fluid UI is a lightweight, modern CSS framework built for performance and flexibility. It leverages OKLCH colors for better perceptional consistency, Fluid typography using clamp(), and a modular layout system."
+      content="gh_docs_bot is a high-performance C++ Static Site Generator (SSG) built as a reusable GitHub Action. It is designed to automatically build and deploy static documentation websites from Markdown, HTML, AsciiDoc, and Office files (ODT/DOCX) directly within your GitHub workflows."
     />
     <meta
       name="twitter:image"
-      content="https://github.com/Zheng-Bote/fluid_ui/assets/fluid_ui-logo_500x500.png"
+      content="https://github.com/Zheng-Bote/gha_ghpages/assets/ssg-logo_500x500.png"
     />
   </head>
 
@@ -74,13 +75,13 @@
     <header class="site-header">
       <div class="header-left">
         <img
-          src="https://zheng-bote.github.io/fluid_ui/assets/icons/fluid_favicon.svg"
+          src="{{ base_path }}assets/favicon.svg"
           alt="Logo"
           title="Home"
           loading="eager"
           decoding="async"
           fetchpriority="high"
-        />Fluid UI
+        />gh_docs_bot
       </div>
       <div class="header-center">{{ title }}</div>
       <div class="header-right flex items-center justify-end gap-3">
@@ -168,7 +169,7 @@
       </div>
       <div class="footer-right">
         <a
-          href="https://github.com/Zheng-Bote/fluid_ui"
+          href="https://github.com/Zheng-Bote/gha_ghpages"
           alt="Github"
           title="Github"
           >&lt;/&gt;</a
@@ -198,12 +199,12 @@
       </div>
     </div>
 
-    <script type="module" src="https://zheng-bote.github.io/fluid_ui/assets/js/search.js"></script>
-    <script type="module" src="https://zheng-bote.github.io/fluid_ui/assets/js/rz-fontsize.js"></script>
+    <script type="module" src="{{ base_path }}assets/js/search.js"></script>
+    <script type="module" src="{{ base_path }}assets/js/rz-fontsize.js"></script>
     
-    <script src="https://zheng-bote.github.io/fluid_ui/assets/js/fluid_core.js" defer></script>
-    <script src="https://zheng-bote.github.io/fluid_ui/assets/js/fluid_theme.js" defer></script>
-    <script src="https://zheng-bote.github.io/fluid_ui/assets/js/fluid_gallery.js" defer></script>
-    <script src="https://zheng-bote.github.io/fluid_ui/assets/js/fluid_share.js" defer></script>
+    <script src="{{ base_path }}assets/js/fluid_core.js" defer></script>
+    <script src="{{ base_path }}assets/js/fluid_theme.js" defer></script>
+    <script src="{{ base_path }}assets/js/fluid_gallery.js" defer></script>
+    <script src="{{ base_path }}assets/js/fluid_share.js" defer></script>
   </body>
 </html>
